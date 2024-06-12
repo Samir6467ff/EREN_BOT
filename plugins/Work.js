@@ -22,7 +22,7 @@ const handler = async (m, { conn, isPrems }) => {
 };
 handler.help = ['work'];
 handler.tags = ['xp'];
-handler.command = /^(عمل|trabajar|مغامره)$/i
+handler.command = /^(trabajar|مغامره)$/i
 handler.fail = null;
 export default handler;
 
