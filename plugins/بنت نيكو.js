@@ -101,28 +101,50 @@ const dir = [
 let handler = async (m, { conn }) => {
   conn.sendFile(m.chat, dir[Math.floor(Math.random() * dir.length)], 'dado.webp',    '      *انمي بنات نيكو💜💫*   *✦━━━━━⚡️━━━━━━✦*', m)
 },
-                  interactiveMessage: {
-                      body: { text: ,
-                      footer: { text: `${global.wm}`.trim() },
-                      header: {
-                          hasMediaAttachment: true,
-                          imageMessage: messa.imageMessage,
-                      },
-                      nativeFlowMessage: {
-                          buttons: [
+  
+   { generateWAMessageFromContent, proto } = pkg
+
+var handler = async (m, { conn, usedPrefix }) => {
+
+let msg = generateWAMessageFromContent(m.chat, {
+  viewOnceMessage: {
+    message: {
+        "messageContextInfo": {
+          "deviceListMetadata": {},
+          "deviceListMetadataVersion": 2
+        },
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+          body: proto.Message.InteractiveMessage.Body.create({
+            text: "test"
+          }),
+          footer: proto.Message.InteractiveMessage.Footer.create({
+            text: "test"
+          }),
+          header: proto.Message.InteractiveMessage.Header.create({
+            title: "test",
+            subtitle: "test",
+            hasMediaAttachment: false
+          }),
+          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+            buttons: [
                               {
                                   name: 'quick_reply',
                                   buttonParamsJson: JSON.stringify({
                                       display_text: 'التالي',
                                       id: `بنت`
+
                                   })
-                              },   
-                          ],
-                          messageParamsJson: "",
-                      },
-                  },
-              },
+                              }
+           ],
+          })
+        })
+    }
   }
+}, {})
+
+await conn.relayMessage(msg.key.remoteJid, msg.message, { messageId: msg.key.id })
+
+}
 handler.help = ['dado']
 handler.tags = ['game']
 handler.command = ['بنت', 'dados'] 
