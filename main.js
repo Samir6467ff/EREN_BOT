@@ -6,7 +6,7 @@ import path, {join} from 'path';
 import {fileURLToPath, pathToFileURL} from 'url';
 import {platform} from 'process';
 import * as ws from 'ws';
-import {readdirSync, statSync, unlinkSync, existsSync, readFileSync, rmSync, watch} from 'fs';
+import {readdirSync, statSync, unlinkSync, existsSync, readFileSync, rmSync, watch, unlink} from 'fs';
 import yargs from 'yargs';
 import {spawn} from 'child_process';
 import lodash from 'lodash';
@@ -53,46 +53,6 @@ global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse()
 global.prefix = new RegExp('^[' + (opts['prefix'] || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-.@').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']');
 
 global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`));
-
-
-import firebaseAdmin from 'firebase-admin';
-
-function loadDataAndReplaceInvalidKeys() {
-    const data = JSON.parse(readFileSync('database.json', 'utf8'));
-    return replaceInvalidKeys(data);
-}
-
-function replaceInvalidKeys(obj) {
-    const newObj = {};
-    for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            const newKey = key.replace(/\./g, ','); 
-            newObj[newKey] = obj[key];
-            if (typeof obj[key] === 'object') {
-                newObj[newKey] = replaceInvalidKeys(obj[key]);
-            }
-        }
-    }
-    return newObj;
-}
-
-const serviceAccount = JSON.parse(readFileSync('./firebase-key.json', 'utf8')); 
-const id = serviceAccount.project_id
-firebaseAdmin.initializeApp({
-    credential: firebaseAdmin.credential.cert(serviceAccount),
-    databaseURL: `https://${id}-default-rtdb.firebaseio.com`
-});
-
-async function saveDataToFirebase() {
-    const dbRef = firebaseAdmin.database().ref('/');
-    const replacedData = loadDataAndReplaceInvalidKeys();
-    await dbRef.set(replacedData);
-    console.log('Done Save database << 200')
-}
-
-setInterval(saveDataToFirebase, 60000);
-
-
 
 global.DATABASE = global.db; 
 global.loadDatabase = async function loadDatabase() {
@@ -217,17 +177,17 @@ let numeroTelefono
 if (!!phoneNumber) {
 numeroTelefono = phoneNumber.replace(/[^0-9]/g, '')
 if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.bold.redBright("Comience con el código de país de su número de WhatsApp.\nEjemplo: +967773685143\n")))
+console.log(chalk.bgBlack(chalk.bold.redBright("Comience con el código de país de su número de WhatsApp.\nEjemplo: +5219992095479\n")))
 process.exit(0)
 }} else {
 while (true) {
-numeroTelefono = await question(chalk.bgBlack(chalk.bold.yellowBright('Por favor, escriba su número de WhatsApp.\nEjemplo: +967773685143\n')))
+numeroTelefono = await question(chalk.bgBlack(chalk.bold.yellowBright('Por favor, escriba su número de WhatsApp.\nEjemplo: +5219992095479\n')))
 numeroTelefono = numeroTelefono.replace(/[^0-9]/g, '')
 
 if (numeroTelefono.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
 break 
 } else {
-console.log(chalk.bgBlack(chalk.bold.redBright("Por favor, escriba su número de WhatsApp.\nEjemplo: +967773685143.\n")))
+console.log(chalk.bgBlack(chalk.bold.redBright("Por favor, escriba su número de WhatsApp.\nEjemplo: +5219992095479.\n")))
 }}
 rl.close()  
 } 
@@ -285,6 +245,32 @@ function clearTmp() {
     return false;
   });
 }
+
+// Función para eliminar archivos core.<numero>
+const dirToWatchccc = path.join(__dirname, './');
+function deleteCoreFiles(filePath) {
+  const coreFilePattern = /^core\.\d+$/i;
+  const filename = path.basename(filePath);
+  if (coreFilePattern.test(filename)) {
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.error(`Error eliminando el archivo ${filePath}:`, err);
+      } else {
+        console.log(`Archivo eliminado: ${filePath}`);
+      }
+    });
+  }
+}
+fs.watch(dirToWatchccc, (eventType, filename) => {
+  if (eventType === 'rename') {
+    const filePath = path.join(dirToWatchccc, filename);
+    fs.stat(filePath, (err, stats) => {
+      if (!err && stats.isFile()) {
+        deleteCoreFiles(filePath);
+      }
+    });
+  }
+});
 
 function purgeSession() {
 let prekey = []
@@ -430,12 +416,12 @@ global.reloadHandler = async function(restatConn) {
 
   // Para cambiar estos mensajes, solo los archivos en la carpeta de language, 
   // busque la clave "handler" dentro del json y cámbiela si es necesario
-  conn.welcome = '*❮ @user مرحبا بك معنا┃\n\n@subject┃ اقرأ وصف المجموعة* 💀☠️\n*@desc✓* ';
-  conn.bye = '@user *❮ لا تعد مرة اخرى┃';
-  conn.spromote = '↞@user اصبح مشرف ✓*';
-  conn.sdemote = '*↞@user تم تنزيله من مشرف الى عضو✓┊*';
-  conn.sDesc = '*↞تم تعديل وصف المجموعه✓*\n\n*الوصف الجديد↞* @desc✓';
-  conn.sSubject = '*↞تم تعديل اسم المجموعه✓*\n*الاسم الجديد↞* @subject✓';
+  conn.welcome = '👋 ¡Bienvenido/a!\n@user';
+  conn.bye = '👋 ¡Hasta luego!\n@user';
+  conn.spromote = '*[ ℹ️ ] @user Fue promovido a administrador.*';
+  conn.sdemote = '*[ ℹ️ ] @user Fue degradado de administrador.*';
+  conn.sDesc = '*[ ℹ️ ] La descripción del grupo ha sido modificada.*';
+  conn.sSubject = '*[ ℹ️ ] El nombre del grupo ha sido modificado.*';
   conn.sIcon = '*[ ℹ️ ] Se ha cambiado la foto de perfil del grupo.*';
   conn.sRevoke = '*[ ℹ️ ] El enlace de invitación al grupo ha sido restablecido.*';
 
@@ -591,7 +577,7 @@ setInterval(async () => {
   if (stopped === 'close' || !conn || !conn.user) return;
   const _uptime = process.uptime() * 1000;
   const uptime = clockString(_uptime);
-  const bio = `❮ الوقت❗️ Uptime:┃✜❯ ${uptime}`;
+  const bio = `[ ⏳ ] Uptime: ${uptime}`;
   await conn.updateProfileStatus(bio).catch((_) => _);
 }, 60000);
 function clockString(ms) {
