@@ -1757,16 +1757,16 @@ global.dfail = (type, m, conn) => {
   const tradutor = _translate.handler.dfail
 
   const msg = {
-    rowner: tradutor.texto1,
-    owner: tradutor.texto2,
-    mods: tradutor.texto3,
-    premium: tradutor.texto4,
-    group: tradutor.texto5,
-    private: tradutor.texto6,
-    admin: tradutor.texto7,
-    botAdmin: tradutor.texto8,
-    unreg: tradutor.texto9,
-    restrict: tradutor.texto10,
+       rowner: '*↞هذا الامر للمطور فقط✓┃🎀┃*',
+      owner: '*↞هذا الامر للمطور فقط✓┃🎀┃*',
+      mods: '*↞ الميزه دي لمالك البوت فقط✓┃🎀┃*',
+      premium: '*↞الميزه دي للأعضاء المميزين فقط✓┃🎀┃*',
+      group: '*↞هذا الامر  في الجروبات فقط✓┃🎀┃*',
+      private: '*↞الميزه دي في الخاص  فقط✓┃🎀┃*',
+      admin: '*↞ هذا الأمر للادمن فقط✓┃🎀┃┊*',
+      botAdmin: '*↞ارفع البوت ادمن الاول✓┃🎀┃*',
+      unreg: '*[ لحظة !! انت مش مسجل ]*\n\n*『 سجل الامر عشان تفعله 』*\n*➣ #تفعيل الاسم.السن*\n*➣مثل : #تفعيل ارثر.17*',
+      restrict: '*↞تم الغاء الأمر من قبل المطور✓┃🔱┃*',
   }[type];
   const aa = { quoted: m, userJid: conn.user.jid };
   const prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: tradutor.texto11[0], body: tradutor.texto11[1], thumbnail: imagen1, sourceUrl: tradutor.texto11[2] } } } }, aa);
