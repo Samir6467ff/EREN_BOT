@@ -104,6 +104,6 @@ const handler = async (m, { conn, text, command }) => {
 
 handler.help = ['Zorosurah <surah>'];
 handler.tags = ['Zorosurah'];
-handler.command = ['سوره', 'تلاوة'];
+handler.command = ['سورة', 'تلاوة'];
 
 export default handler;
