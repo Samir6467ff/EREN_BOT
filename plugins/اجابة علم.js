@@ -1,3 +1,4 @@
+//كود الاجابه 
 import similarity from 'similarity'
 const threshold = 0.72
 export async function before(m) {
