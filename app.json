@@ -2,9 +2,9 @@
   "name": "TheMystic-Bot-MD",
   "website": "https://github.com/BrunoSobrino",
   "description": "Subscribete a The Shadow Borkers - Bot (≧▽≦)",
-  "repository": "https://whatsapp.com/channel/0029VaenWxX0AgWDJwlaWG0W",
-  "logo": "https://telegra.ph/file/48d1b1b70fcc002571a78.jpg",
-  "success_url": "https://whatsapp.com/channel/0029VaenWxX0AgWDJwlaWG0W",
+  "repository": "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
+  "logo": "https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/pictures/heroku-icon.jpg",
+  "success_url": "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
   "keywords": [
     "nodejs",
     "heroku",
