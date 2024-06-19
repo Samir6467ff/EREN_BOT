@@ -3,18 +3,6 @@ let member = participants.map(u => u.id)
 if(!text) {
     await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
 }
-//حقوق روبيرتو
-//https://whatsapp.com/channel/0029VadWNZBLdQei1yiuc52P
-
-if (image !== "غير متوفر") {
-    const imageResponse = await axios.get(image, { responseType: 'arraybuffer' });
-    const imageBuffer = Buffer.from(imageResponse.data, 'binary');
-
-    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
-} else {
-    const imageResponse = await axios.get("https://github.com/OfcDiego/YoshikoBot-MD?tab=readme-ov-file", { responseType: 'arraybuffer' });
-    const imageBuffer = Buffer.from(imageResponse.data, 'binary');
-
 var sum = member.length
 } else {
 var sum = text} 
