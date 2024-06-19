@@ -1,5 +1,17 @@
 //import db from '../lib/database.js'
 import { canLevelUp } from '../lib/levelling.js'
+//حقوق روبيرتو
+if (image !== "غير متوفر") {
+    const imageResponse = await axios.get(image, { responseType: 'arraybuffer' });
+    const imageBuffer = Buffer.from(imageResponse.data, 'binary');
+
+    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
+} else {
+    const imageResponse = await axios.get("https://github.com/OfcDiego/YoshikoBot-MD?tab=readme-ov-file", { responseType: 'arraybuffer' });
+    const imageBuffer = Buffer.from(imageResponse.data, 'binary');
+
+    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
+}
 
 export async function before(m, { conn }) {
   let user = global.db.data.users[m.sender]
@@ -9,7 +21,7 @@ export async function before(m, { conn }) {
   user.role = global.rpg.role(user.level).name
   if (before !== user.level) {
     m.reply(
-	    `'https://telegra.ph/file/48d1b1b70fcc002571a78.jpg'
+	    `
 *「✧|───✦❯┇💎┇❮✦───|✧」*
 *⚡️┃مـبـروك للتـرقـيه الجـديـده┃⚡*
 
