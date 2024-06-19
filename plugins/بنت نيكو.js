@@ -99,7 +99,7 @@ const dir = [
   'https://i.pinimg.com/originals/07/93/ba/0793ba12842bab83b5b1a6e8476b7561.jpg', 
 ];
 let handler = async (m, { conn }) => {
-  conn.sendFile(m.chat, dir[Math.floor(Math.random() * dir.length)], 'dado.webp',    '      *انمي بنات نيكو💜💫*   *✦━━━━━⚡️━━━━━━✦*', m)
+conn.sendButton(m.chat, `💞 ${mid.buscador}: ${text}`, wm, link, [['🔄 𝙎𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚 | 𝙉𝙚𝙭𝙩', `/imagen ${text}`]], null, null, m)
 }
 await conn.relayMessage(msg.key.remoteJid, msg.message, { messageId: msg.key.id })
 
