@@ -1,7 +1,5 @@
 //import db from '../lib/database.js'
 import { canLevelUp } from '../lib/levelling.js'
-    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
-}
 
 export async function before(m, { conn }) {
   let user = global.db.data.users[m.sender]
@@ -20,7 +18,7 @@ export async function before(m, { conn }) {
  *⎔↞┃الـرتـبـة⚔️↞ ${user.role}┃*
 
 *「✧|───✦❯┇💎┇❮✦───|✧」*
- _لتـعـطـبـل الـمـيـزة_
+ _لتـعـطـيـل الـمـيـزة_
 _*/off autolevelup*_
 	`.trim()
     )
