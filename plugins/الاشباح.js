@@ -1,6 +1,19 @@
 let handler = async (m, { conn, text, participants }) => {
 let member = participants.map(u => u.id)
 if(!text) {
+  //حقوق روبيرتو
+if (image !== "غير متوفر") {
+    const imageResponse = await axios.get(image, { responseType: 'arraybuffer' });
+    const imageBuffer = Buffer.from(imageResponse.data, 'binary');
+
+    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
+} else {
+    const imageResponse = await axios.get("اhttps://telegra.ph/file/48d1b1b70fcc002571a78.jpg", { responseType: 'arraybuffer' });
+    const imageBuffer = Buffer.from(imageResponse.data, 'binary');
+
+    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
+}
+
 var sum = member.length
 } else {
 var sum = text} 
