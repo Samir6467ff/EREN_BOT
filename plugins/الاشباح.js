@@ -1,8 +1,6 @@
 let handler = async (m, { conn, text, participants }) => {
 let member = participants.map(u => u.id)
 if(!text) {
-    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
-}
 var sum = member.length
 } else {
 var sum = text} 
