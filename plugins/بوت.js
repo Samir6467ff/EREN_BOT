@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
     let message = `*˼💧˹┊「 مرحبآ ↫ ${taguser}」*\n> اهـلًا مـعـك بـوت اسـمـي مـيـزوهـارا\n> لـلمـساعـدة اكــتب الـاوامـر او شـرح\n> لتضيف البوت لقروبك اكـتب الـمـطـور\n*✧━━ • ━ 「  ✤  」 ━ • ━━✧*
 \n> ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴`;
 
-    conn.sendFile(m.chat, 'https://telegra.ph/file/fcb03ca7c027822e545e2.jpg', 'image.jpg', message, m);
+    conn.sendFile(m.chat, 'https://telegra.ph/file/80c9171c93b29f99d4cfe.jpg', 'image.jpg', message, m);
 };
 
 handler.customPrefix = /^(بوت|اوامر|الاوامر)$/i;
