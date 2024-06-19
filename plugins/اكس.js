@@ -1,17 +1,22 @@
-//حقوق روبيرتو
+
+    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
+}
+
+import TicTacToe from '../lib/tictactoe.js'
+
+
 if (image !== "غير متوفر") {
     const imageResponse = await axios.get(image, { responseType: 'arraybuffer' });
     const imageBuffer = Buffer.from(imageResponse.data, 'binary');
 
     await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
 } else {
-    const imageResponse = await axios.get("https://telegra.ph/file/48d1b1b70fcc002571a78.jpg", { responseType: 'arraybuffer' });
+    const imageResponse = await axios.get("https://github.com/OfcDiego/YoshikoBot-MD?tab=readme-ov-file", { responseType: 'arraybuffer' });
     const imageBuffer = Buffer.from(imageResponse.data, 'binary');
 
     await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
 }
 
-import TicTacToe from '../lib/tictactoe.js'
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     conn.game = conn.game ? conn.game : {}
