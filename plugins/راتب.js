@@ -19,7 +19,7 @@ let texto = `
 ║┈┈┈┈┈┈┈┈┈┈┈┈┈
 ║➢ *${dia} الألماس* 💎
 ║➢ *${tok} العملات* 🪙
-║➢ *${mystic} اشياء*🎀 
+║➢ *${mystic} هداية*🎀 
 ║➢ *${expp} اكسبي*🥇 
 ╚═════════════════⬣`
 
@@ -45,7 +45,7 @@ global.db.data.users[m.sender].lastcofre = new Date * 1
 handler.help = ['daily']
 handler.tags = ['xp']
 handler.command = ['راتب', 'هديه', 'abrircofre', 'cofreabrir'] 
-handler.level = 5
+handler.level = 1
 export default handler
 
 function pickRandom(list) {
