@@ -7,10 +7,11 @@ do b = ps.getRandom()
 while (b === a)
 m.reply(`*✦┇${toM(a)}, الف مبروك للعريس🥳✨*
 *${toM(b)}, الف مبروك للعروسه🥳✨️┇*\n\ *ملاحظه هذا المنشن عشوائي للمرح فقط✿*`, null, {
-mentions: [a, b]
+conn.sendButton(m.chat, `💞 ${mid.buscador}: ${text}`, wm, link, [['🔄 𝙎𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚 | 𝙉𝙚𝙭𝙩', `/imagen ${text}`]], null, null, m)  mentions: [a, b]
 })}
 handler.help = ['formarpareja']
 handler.tags = ['main', 'fun']
 handler.command = ['formarpareja','زواج']
 handler.group = true
 export default handler
+conn.sendButton(m.chat, `💞 ${mid.buscador}: ${text}`, wm, link, [['🔄 𝙎𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚 | 𝙉𝙚𝙭𝙩', `/imagen ${text}`]], null, null, m)
