@@ -1,11 +1,4 @@
-
-    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
-}
-
 import TicTacToe from '../lib/tictactoe.js'
-    await conn.sendMessage(m.chat, { image: imageBuffer, caption: messageText });
-}
-
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     conn.game = conn.game ? conn.game : {}
