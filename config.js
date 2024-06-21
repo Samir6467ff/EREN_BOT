@@ -11,22 +11,22 @@ global.botnumber = ""
 global.confirmCode = ""
 
 global.owner = [
-  ['967773685143', '❯⏐ 𝐵𝛩𝑇 𝐸𝑅𝑺𝑁', true],
-  ['967773685143', '❯⏐ 𝐵𝛩𝑇 𝐸𝑅𝑺𝑁', true],
-  ['967773685143', '❯⏐ 𝐵𝛩𝑇 𝐸𝑅𝑺𝑁', true],
+  ['967773685143', '❯⏐ 𝐵𝛩𝑇 𝐸𝑅𝑺𝑁💧', true],
+  ['967773685143', '❯⏐ 𝐵𝛩𝑇 𝐸𝑅𝑺𝑁💧', true],
+  ['967773685143', '❯⏐ 𝐵𝛩𝑇 𝐸𝑅𝑺𝑁💧', true],
   ['967773685143'],
   ['967773685143'],
   ['+967773685143']
 ];
 
-global.suittag = ['967773685143'];
-global.prems = ['967773685143'];
-global.packname = 'Sticker';
-global.author = '𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
-global.wm = '𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
-global.titulowm = '𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
-global.titulowm2 = `𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀`
-global.igfg = '𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
+global.suittag = ['967773685143💧'];
+global.prems = ['967773685143💧'];
+global.packname = '❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
+global.author = '> ❯⏐ 𝐵𝛩𝑇';
+global.wm = '> ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
+global.titulowm = '> ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
+global.titulowm2 = `> ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀`
+global.igfg = '> ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴';
 global.wait = '*[ ⏳ ]  _جاري التحميل..._*';
 
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
@@ -41,18 +41,6 @@ global.imagen9 = fs.readFileSync('./src/menu_en.png')
 global.imagen10 = fs.readFileSync('./src/menu_ru.png')
 global.mods = [];
 
-
-global.gp1 = 'https://chat.whatsapp.com/Em1J2VaglHc1fe26YtBDCS' //Grupo Oficial De Yoshiko
-global.gp2 = 'https://chat.whatsapp.com/KNhfEDUTcyl5RuwR1Is4Hk' //Grupo Oficial Yoshiko
-global.gp3 = 'https://chat.whatsapp.com/Ksd32KH9zFoDmO1PJt44M7' //GataBot Y Yoshiko
-global.gp4 = 'https://chat.whatsapp.com/IstOAq2RnBx687WhQpOYK8' //NovaBot Y Yoshiko
-global.gp5 = 'https://chat.whatsapp.com/GvJAupaHXTQDNivZIa2l5D' //Alisa Kujou Y Yoshiko
-global.gp6 = 'https://chat.whatsapp.com/EVc2XJuZwjnKKdWUsRYmms' //ShizukaBot Y Yoshiko
-global.channel = 'https://whatsapp.com/channel/0029VaQD7LAJP216tu9liI2A' //Canal Oficial
-global.yt = 'https://www.youtube.com/@Yoshiko_team' //Canal De Youtube
-global.md = 'https://github.com/OfcDiego/YoshikoBot-MD' //Github Oficial
-global.fb = 'https://www.facebook.com/diegosaroficial?mibextid=ZbWKwL' //Facebook Del Propietario
-
 //* *******Tiempo***************
 global.d = new Date(new Date + 3600000);
 global.locale = 'es';
@@ -63,8 +51,8 @@ global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
 global.wm2 = `${dia} ${fecha}\nThe Mystic - Bot`;
-global.gt = '𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
-global.mysticbot = '𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
+global.gt = '> ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
+global.mysticbot = '> ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴🎀';
 global.md = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
 global.mysticbot = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
 global.waitt = '*[ ⏳ ]  _جاري التحميل..._*';
