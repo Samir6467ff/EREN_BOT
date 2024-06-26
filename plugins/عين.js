@@ -8,7 +8,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
         conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tebakbendera[id][0])
         throw false
     }
-    let src = await (await fetch('https://gist.githubusercontent.com/Kyutaka101/4e01c190b7d67225ad7a86d388eeedf6/raw/67f0de059cea4b965a3f3bf211c12fc9c48043e5/gistfile1.txt')).json()
+    let src = await (await fetch('https://raw.githubusercontent.com/1233taisiya/EREN_BOT/master/plugins/%D9%81%D8%B1%D9%8A%D8%A8%D9%8A%D9%83.js')).json()
   let json = src[Math.floor(Math.random() * src.length)]
     let caption = `*˼‏❖˹┇⇠『السؤال ${command.toUpperCase()}』*
   *「✧|────✦❯◇❮✦────|✧」*
