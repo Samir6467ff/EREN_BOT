@@ -35,6 +35,6 @@ let str = `*❖ ── ✦ ──『⚜️』── ✦ ── ❖*
 }
 handler.help = ['perfil']
 handler.tags = ['group']
-handler.command = ['profile', 'بروفايليي'] 
+handler.command = ['profile', 'بروفايل'] 
 
 export default handler
