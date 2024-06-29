@@ -6,7 +6,7 @@ import { canLevelUp, xpRange } from '../lib/levelling.js'
 let handler = async (m, { conn, usedPrefix, command}) => {
 
 let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+if (!(who in global.db.data.users)) throw `✳The user is not found in my database`
 let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/killua.jpg')
 let user = global.db.data.users[who]
 let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who]
@@ -23,7 +23,7 @@ let str = `*❖ ── ✦ ──『⚜️』── ✦ ── ❖*
 *⤶❏ الرابط 🖇️ : wa.me/${who.split`@`[0]}${registered ? '\n⤶❏ *🎈العمر*: ' + age + ' 
 *⤶❏ الجواهر 💎 : ${diamond}*
 *⤶❏ المستوى 📊 : ${level}*
-*⤶❏ الاكس بي 📈* : المجموع ${exp} (${user.exp - min} / ${xp})\n${math <= 0 ? `*${usedPrefix}levelup*` : `باقي لك  *${math}اكس بي للصعود الى لفل اخر*`}
+*⤶❏ الاكس بي 📈* : المجموع ${exp} (${user.exp - min} / ${xp})\n${math <= 0 ? `${usedPrefix}levelup` : `باقي لك  *${math}اكس بي للصعود الى لفل اخر*`}
 *⤶❏ التصنيف 🧮 : ${role}*
 *⤶❏ التسجيل 📄 : ${registered ? 'يب': 'لا'}*
 *⤶❏ بريميوم 🌩️ : ${prem ? 'يب' : 'لا'}*
