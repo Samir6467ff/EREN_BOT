@@ -1,4 +1,3 @@
-
 import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
 
 const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
