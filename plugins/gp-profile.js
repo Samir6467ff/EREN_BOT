@@ -23,5 +23,5 @@ ${sn}`
 conn.sendButton(m.chat, str, author, pp, [['عرض قائمة الاوامر', '/menu']], m)}}
 handler.help = ['profile [@user]']
 handler.tags = ['xp']
-handler.command = /^perfil7|بروفايل|البروفايل?$/i
+handler.command = /^perfil7|بروفايلي|الشخصية?$/i
 export default handler
