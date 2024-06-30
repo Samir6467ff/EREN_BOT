@@ -436,8 +436,8 @@ global.reloadHandler = async function(restatConn) {
   conn.sdemote = '*↞@user تم تنزيله من مشرف الى عضو✓┊*';
   conn.sDesc = '*↞تم تعديل وصف المجموعه✓*\n\n*الوصف الجديد↞* @desc✓';
   conn.sSubject = '*↞تم تعديل اسم المجموعه✓*\n*الاسم الجديد↞* @subject✓';
-  conn.sIcon = '*[ ℹ️ ] Se ha cambiado la foto de perfil del grupo.*';
-  conn.sRevoke = '*[ ℹ️ ] El enlace de invitación al grupo ha sido restablecido.*';
+  conn.sIcon = '*[ ✅ ] تم تغيير صورة المجموعة بنجاح .*';
+  conn.sRevoke = '*[ ✅ ] تم إعادة تغيين رابط دعوة المجموعة بنجاح.*';
 
   conn.handler = handler.handler.bind(global.conn);
   conn.participantsUpdate = handler.participantsUpdate.bind(global.conn);
