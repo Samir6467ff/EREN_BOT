@@ -24,7 +24,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  		sections: [
   						  			{
   						  				title: 'List',
-  							  	    highlight_label: '𝐵𝛩𝑇',
+  							  	    highlight_label: '',
   						  		    rows: [
   						  		    	{
   						  		    		header: '❯⏐اوامـر الـجـروبـات↞📜',
@@ -35,7 +35,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  		    ]
   						  			},
   						  			{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر الأعـضـاء↞🪽',
@@ -46,7 +46,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
                                     {
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر  الـترفـيـه↞🎀',
@@ -57,7 +57,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
                                     {
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر  التـحمـيل↞🖨️',
@@ -68,7 +68,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
   						  	{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر الـصـور↞☘️',
@@ -79,7 +79,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
   						  	{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر الـلـفـل↞🏅',
@@ -90,7 +90,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
   						  	{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر الملصقات↞❄️',
@@ -101,7 +101,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
   						  	{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر الأصـوات↞🎵',
@@ -112,7 +112,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
   						  	{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر ديـنـيـه↞🕌',
@@ -123,7 +123,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
   						  	{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐مـعلـومـات الـبـوت↞🪙',
@@ -134,7 +134,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				]
   						  			},
   						  	{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر الـمطـور↞👑',
@@ -146,7 +146,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  			},
   						  	
   						  			{
-  						  				highlight_label: '𝐵𝛩𝑇',
+  						  				highlight_label: '',
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐جـمـيـع الاوامـر ↞💎',
