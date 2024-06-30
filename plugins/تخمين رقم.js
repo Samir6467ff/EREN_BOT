@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     let regex = /x/g
-    if (!text) throw '*هــات الــرقم لــكي افـعل عــملـيـة الــبـحث !*'
-    if (!text.match(regex)) throw `*هــكذا: ${usedPrefix + command} 91760590201x*`
+    if (!text) throw '*أكتب الرقم عشان أبدا تخمين ياذكي !*'
+    if (!text.match(regex)) throw `*كـذا: ${usedPrefix + command} 91760590201x*`
     let random = text.match(regex).length, total = Math.pow(10, random), array = []
     for (let i = 0; i < total; i++) {
     let list = [...i.toString().padStart(random, '0')]
