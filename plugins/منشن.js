@@ -1,19 +1,17 @@
-let handler = async(m, { isOwner, isAdmin, conn, text, participants, args, command }) => {
-if (!(isAdmin || isOwner)) {
-global.dfail('admin', m, conn)
-throw false
-}//غير ڤينوم و حط اسم بوتك
-let pesan = args.join` `
-let oi = ` ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴 ${pesan}`
-let teks = `*「✧|────✦❯l◇l❮✦────|✧」*\n*✦┃تـفـاعـلوا↞┃✦* \n\n ${oi}\n\n*┇الجروب┇↞❮ ❄️ ❯*\n*「✧|────✦❯◇❮✦────|✧」*\n*✧━━ • ━ 「 ✤ 」 ━ • ━━✧*\n`
-for (let mem of participants) {
-teks += `*˼‏🌸˹┆↵* @${mem.id.split('@')[0]}\n`}
-teks += `*✧━━ • ━ 「 ✤ 」 ━ • ━━✧*\n> ❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴\n\n`
-conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, )
+let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
+  let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
+  m.reply(`❏ مجموعة : *${groupMetadata.subject}*\n❏ أعضاء : *${participants.length}*${text ? `\n❐ رسالة : ${text}\n` : ''}\n❅✦━━━━━━[ 𝐊𝐢𝐫𝐚 ]━━━━━━✦❅
+*⤹⚜⊰❅⊱⚜⤸* 
+*✦━━─━━━⌠❄️⌡━━━─━━✦*
+*⤹⚜ المنشن ⊰⚡⊱ الجماعي ⚜⤸*\n` + users.map(v => '│◦❈↲  @' + v.replace(/@.+/, '')).join`\n` + '\n*✦━━━━━━[ 𝐊𝐢𝐫𝐚 ]━━━━━━✦*', null, {
+      mentions: users
+  })
 }
-handler.help = ['tagall <mesaje>','invocar <mesaje>']
+
+handler.help = ['tagall']
 handler.tags = ['group']
-handler.command = /^(منشن|invocar|invocacion|todos|invocación)$/i
+handler.command = ['منشن']
 handler.admin = true
 handler.group = true
+
 export default handler
