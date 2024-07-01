@@ -5,7 +5,7 @@ let handler = async (m, { conn, text }) => {
   let chats = Object.entries(conn.chats).filter(([_, chat]) => chat.isChats).map(v => v[0])
   let cc = conn.serializeM(text ? m : m.quoted ? await m.getQuotedObj() : false || m)
   let teks = text ? text : cc.text
-  conn.reply(m.chat, `جاري التجهيز *عدد الجروبات:* ${chats.length}`, m)
+  conn.reply(m.chat, `جاري التجهيز *عدد القروبات:* ${chats.length}`, m)
   for (let id of chats) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast|tx/i.test(teks) ? teks : `${teks}` ), true).catch(_ => _)
   m.reply('تم التحويل')
 }
