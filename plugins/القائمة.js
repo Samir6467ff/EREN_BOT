@@ -28,9 +28,9 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  		    rows: [
   						  		    	{
   						  		    		header: '❯⏐اوامـر الـقـروبـات↞📜',
-  										      title: '.ميزو1',
+  										      title: ' .ميزو1 ',
   									    	  description: '',
-  								    		  id: '.ميزو1'
+  								    		  id: ' .ميزو1 '
   						  		    	}
   						  		    ]
   						  			},
@@ -63,7 +63,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  		    		header: '❯⏐اوامـر  التـحمـيل↞🖨️',
   										      title: 'ميزو4.',
   									    	  description: '',
-  								    		  id: '.ميزو4'
+  								    		  id: ' ميزو4. '
   						  		    	}
   						  				]
   						  			},
@@ -74,7 +74,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  		    		header: '❯⏐اوامـر الـصـور↞☘️',
   										      title: 'ميزو5',
   									    	  description: '',
-  								    		  id: '.ميزو5'
+  								    		  id: ' ميزو5.'
   						  		    	}
   						  				]
   						  			},
@@ -169,8 +169,8 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                               {
                                   name: 'quick_reply',
                                   buttonParamsJson: JSON.stringify({
-                                      display_text: '❯⏐شـرح الـبـوت🔍',
-                                      id: `.شرح`
+                                      display_text: '❯ .شرح',
+                                      id: `❯⏐شـرح الـبـوت🔍`
                                   })
                               },
                               {
