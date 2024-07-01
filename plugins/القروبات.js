@@ -1,7 +1,7 @@
 let handler = async (m, { conn }) => {
 let txt = ''
 for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats)) txt += `\n—◉ ${await conn.getName(jid)}\n➤ ${jid} [${chat?.metadata?.read_only ? 'لا يوجد مشاركون' : 'مشارك'}]\n\n`
-m.reply(`*قائمة القروبات الذي البوت بداخلها:*
+m.reply(`*قائمة القروبات اللي داخلها:*
 ${txt}
 `.trim())
 }
