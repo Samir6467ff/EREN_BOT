@@ -27,8 +27,8 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   							  	    highlight_label: '',
   						  		    rows: [
   						  		    	{
-  						  		    		header: '❯⏐اوامـر الـجـروبـات↞📜',
-  										      title: 'ميزو1',
+  						  		    		header: '❯⏐اوامـر الـقـروبـات↞📜',
+  										      title: '.ميزو1',
   									    	  description: '',
   								    		  id: '.ميزو1'
   						  		    	}
@@ -39,7 +39,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر الأعـضـاء↞🪽',
-  										      title: 'ميزو2',
+  										      title: '.ميزو2',
   									    	  description: '',
   								    		  id: '.ميزو2'
   						  		    	}
@@ -50,7 +50,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر  الـترفـيـه↞🎀',
-  										      title: 'ميزو3',
+  										      title: 'ميزو3.',
   									    	  description: '',
   								    		  id: '.ميزو3'
   						  		    	}
@@ -61,7 +61,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
   						  				rows: [
   						  					{
   						  		    		header: '❯⏐اوامـر  التـحمـيل↞🖨️',
-  										      title: 'ميزو4',
+  										      title: 'ميزو4.',
   									    	  description: '',
   								    		  id: '.ميزو4'
   						  		    	}
