@@ -2,7 +2,7 @@ let handler = async function (m, { conn, args }) {
   let groupInfo = await conn.groupMetadata(m.chat);
 
   if (!groupInfo) {
-    return m.reply('حدث خطأ في الحصول على معلومات المجموعة.');
+    return m.reply('تعذر الحصول على معلومات المجموعة.');
   }
 
   let groupMembers = groupInfo.participants;
