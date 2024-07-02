@@ -35,7 +35,7 @@ const handler = async function(m, { conn, text, usedPrefix }) {
     );
   } else {
     // Name is not taken
-    m.reply(`*اللقب متوفر*`);
+    m.reply(`*✅اللقب متوفر*`);
   }
 };
 
