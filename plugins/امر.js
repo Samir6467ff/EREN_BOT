@@ -71,7 +71,7 @@ conn.sendMessage(m.chat, {
 }; 
 handler.help = ['amrr']
 handler.tags = ['ميزاو1']
-handler.command = ['ميزو1'] 
+handler.command = ['قـسـم الـتنـزيلات📥✬'] 
 
 export default handler
 function clockString(ms) {
