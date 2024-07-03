@@ -1,206 +1,103 @@
-import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
+let handler = async (m, { conn, args,
+usedPrefix, command }) => {
+conn.relayMessage(m.chat, {
+viewOnceMessage: {
+message: {
+interactiveMessage: {
+header: {
+title: '> ⧉┆مرحبا ياعزيزي 😍 ⤌⤈\n> ↝👋🏻↜\n> ⧉┆انا بوت واتساب'
+ },
+ body: {
+ text: '> ♩☜ اعمل في الخاص وجروبات\n> ♩☜ وظيفتي حماية جروبك\n> ♩☜اوامر كلمه .الاوامر لمعرفه\> n♩☜ اوامر البوت وطريقه الاستخدام\n> ♩☜ مميزات البوت كثيره جدا\n> ♩☜ ويعمل بجودة فائقه وعاليه\n> 𓍹————————————𓍻\n> ↜★ اوامر سورس عفرتو و بلاك بوت ★↝\n> 𓍹————————————𓍻'
+  },
+  nativeFlowMessage: {
+  buttons: [
+   {
+  name: 'single_select',
+  buttonParamsJson: JSON.stringify({
+  title: '❰ اختار من القائمه📄 ❱',
+  sections: [
+  {
+  title: 'قسم الاوامر',
+  highlight_label: 'بوت بلاك & عفروتو',
+  rows: [
+  {
+  header: 'يعطيك اوامر الاعضاء',
+  title: 'الاعضاء',
+  description: '',
+  id: '.1م'
+  },
+  {
+  header: 'يعطيك اوامر الجروبات',
+  title: 'الجروبات',
+  description: '',
+  id: '.2م'
+  },
+  {
+   header: 'يعطيك اوامر التسليه',
+  title: 'التسليه',
+  description: '',
+  id: '.م7'
+  },
+   {
+    header: 'يعطيك اوامر البنك',
+  title: 'البنك',
+  description: '',
+  id: '.م8'
+  },
+   {
+    header: 'يعطيك اوامر القرآن',
+  title: 'القرآن',
+  description: '',
+  id: '.م9'
+  },
+   {
+    header: 'يعطيك كل الاوامر',
+  title: 'جميع الاوامر',
+  description: '',
+  id: '.10م'
+  },
+   {
+   header: 'يعطيك اوامر المالك',
+  title: 'المالك',
+  description: '',
+  id: '.م2'
+  },
+  {
+    header: 'يعطيك اوامر البحث و التنزيل',
+  title: 'البحث و التنزيل',
+  description: '',
+  id: '.م4'
+  },
+  {
+  header: 'يعطيك اوامر التحويل',
+  title: 'التحويل',
+  description: '',
+  id: '.م5'
+  },
+  {
+  header: 'يعطيك اوامر الملصقات',
+  title: 'الملصقات',
+  description: '',
+  id: '.م6'
+  }
+  ]
+  }
+  ]
+  }),
+  messageParamsJson: ''
+  }
+  ]
+  }
+  }
+  }
+  }
+  }, {})
 
-const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
-    const device = await getDevice(m.key.id);
-    const mentionId = m.key.participant || m.key.remoteJid;
+  }
 
-    if (device !== 'desktop' || device !== 'web') {      
-        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/48d1b1b70fcc002571a78.jpg'}}, { upload: conn.waUploadToServer })
-        const interactiveMessage = {
-            body: { text: `*✧━━ • ━ 「 ✤ 」 ━ • ━━✧*\n*〄┃قائمـة الـاوامـر ┃↞ ❮ 🔮 ❯* \n*✧━━ • ━ 「 ✤ 」 ━ • ━━✧*`.trim() },
-            footer: { text: ` > لا تنسى قبل كل امر تحط نقطة❗\n> راسل المطور اذا حدث اي عطل🧿`.trim() },  
-            header: {
-                title: `*✧━━ • ━ 「 l✤l 」 ━ • ━━✧*\n*˼‏❖˹┇⇠『 مرحبآ @${mentionId.split('@')[0]}』*\n*╮─────✦❯┇💎┇❮✦─────╭*\n*〄┃ بـووت ↞ 🎀『 مـيزوهـارا 』*\n*〄┃وقت التشغيل ↞ ⌛『 دائم』*\n*〄┃وضـع الـبوت ↞ 🪧『 عـام 』*\n*〄┃الـمـنـصـه ↞ 🌐『 هـيـروكـو』*\n*╯─────✦❯┇💎┇❮✦─────╰*\n❯⏐ 𝐵𝛩𝑇 𝑀𝐼𝑍𝑈𝐻𝐴𝑅𝐴\n*✧━━ • ━ 「 l✤l 」 ━ • ━━✧*\n> جميع الاوامر قم بختيار اي امر🏷\n> افتح القائمة بالضغط على الزر☘️`,
-                subtitle: ``,
-                hasMediaAttachment: true,
-                imageMessage: joanimiimg.imageMessage,
-            },
-            nativeFlowMessage: {
-  						buttons: [
-  							{
-  								name: 'single_select',
-  						  	buttonParamsJson: JSON.stringify({
-  						  		title: '❯⏐قائـمة الاوامـر🔮',
-  						  		sections: [
-  						  			{
-  						  				title: 'List',
-  							  	    highlight_label: '',
-  						  		    rows: [
-  						  		    	{
-  						  		    		header: '❯⏐اوامـر الـقـروبـات↞📜',
-  										      title: ' .ميزو1 ',
-  									    	  description: '',
-  								    		  id: ' .ميزو1 '
-  						  		    	}
-  						  		    ]
-  						  			},
-  						  			{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر الأعـضـاء↞🪽',
-  										      title: '.ميزو2',
-  									    	  description: '',
-  								    		  id: '.ميزو2'
-  						  		    	}
-  						  				]
-  						  			},
-                                    {
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر  الـترفـيـه↞🎀',
-  										      title: 'ميزو3.',
-  									    	  description: '',
-  								    		  id: '.ميزو3'
-  						  		    	}
-  						  				]
-  						  			},
-                                    {
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر  التـحمـيل↞🖨️',
-  										      title: 'ميزو4.',
-  									    	  description: '',
-  								    		  id: ' ميزو4. '
-  						  		    	}
-  						  				]
-  						  			},
-  						  	{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر الـصـور↞☘️',
-  										      title: 'ميزو5',
-  									    	  description: '',
-  								    		  id: ' ميزو5.'
-  						  		    	}
-  						  				]
-  						  			},
-  						  	{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر الـلـفـل↞🏅',
-  										      title: 'ميزو6',
-  									    	  description: '',
-  								    		  id: '.ميزو6'
-  						  		    	}
-  						  				]
-  						  			},
-  						  	{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر الملصقات↞❄️',
-  										      title: 'ميزو7',
-  									    	  description: '',
-  								    		  id: '.ميزو7'
-  						  		    	}
-  						  				]
-  						  			},
-  						  	{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر الأصـوات↞🎵',
-  										      title: 'ميزو8',
-  									    	  description: '',
-  								    		  id: '.ميزو8'
-  						  		    	}
-  						  				]
-  						  			},
-  						  	{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر ديـنـيـه↞🕌',
-  										      title: 'ميزو9',
-  									    	  description: '',
-  								    		  id: '.ميزو9'
-  						  		    	}
-  						  				]
-  						  			},
-  						  	{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐مـعلـومـات الـبـوت↞🪙',
-  										      title: 'ميزو10',
-  									    	  description: '',
-  								    		  id: '.ميزو10'
-  						  		    	}
-  						  				]
-  						  			},
-  						  	{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐اوامـر الـمطـور↞👑',
-  										      title: 'ميزو11',
-  									    	  description: '',
-  								    		  id: 'ميزو11'
-  						  		    	}
-  						  				]
-  						  			},
-  						  	
-  						  			{
-  						  				highlight_label: '',
-  						  				rows: [
-  						  					{
-  						  		    		header: '❯⏐جـمـيـع الاوامـر ↞💎',
-  										      title: 'ميزو12',
-  									    	  description: '',
-  								    		  id: '.ميزو12'
-  						  		    	}
-  						  				]
-  						  			}
-  						  		]
-  						  	})
-  							},
-                            {
-                                  name: 'quick_reply',
-                                  buttonParamsJson: JSON.stringify({
-                                      display_text: '❯⏐الـمـطـور⚡️',
-                                      id: `.المطور`
-                                  })
-                              },
-                              {
-                                  name: 'quick_reply',
-                                  buttonParamsJson: JSON.stringify({
-                                      display_text: '❯ .شرح',
-                                      id: `❯⏐شـرح الـبـوت🔍`
-                                  })
-                              },
-                              {
-                                  name: 'cta_url',
-                                  buttonParamsJson: JSON.stringify({
-                                      display_text: '❯⏐قناني الواتساب☘️',
-                                      url: 'https://whatsapp.com/channel/0029VaenWxX0AgWDJwlaWG0W',
-                                      merchant_url: 'https://whatsapp.com/channel/0029VaenWxX0AgWDJwlaWG0W'
-                                  })
-                              },
-  			  		],
-                messageParamsJson: ''
-            }
-        };        
+  handler.help = ['info']
+  handler.tags = ['main']
+  handler.command = ['مهام','اوامر','er','youssef','ui','op']
 
-        let msg = generateWAMessageFromContent(m.chat, {
-            viewOnceMessage: {
-                message: {
-                    interactiveMessage,
-                },
-            },
-        }, { userJid: conn.user.jid, quoted: m })
-        msg.message.viewOnceMessage.message.interactiveMessage.contextInfo = { mentionedJid: [mentionId] };
-        conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
-
-    } else {
-        conn.sendFile(m.chat, 'JoAnimi•Error.jpg', m);      
-    }    
-};
-handler.help = ['الاوامر'];
-handler.tags = ['For Test'];
-handler.command = /^(الاوامر|اوامر)$/i;
-export default handler;
+  export default handler
