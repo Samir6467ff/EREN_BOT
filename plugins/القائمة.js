@@ -1,99 +1,99 @@
-import { createHash } from 'crypto'
-   import PhoneNumber from 'awesome-phonenumber'
-   import { canLevelUp, xpRange } from '../lib/levelling.js'
-   import fetch from 'node-fetch'
-   import fs from 'fs'
-   const { levelling } = '../lib/levelling.js'
-   import moment from 'moment-timezone'
-   import { promises } from 'fs'
-   import { join } from 'path'
-   const time = moment.tz('Egypt').format('HH')
-   let wib = moment.tz('Egypt').format('HH:mm:ss')
-   //import db from '../lib/database.js'
+let handler = async (m, { conn, args,
+usedPrefix, command }) => {
+conn.relayMessage(m.chat, {
+viewOnceMessage: {
+message: {
+interactiveMessage: {
+header: {
+title: '> *﹝⟣┈┈┈⟢﹝🍄﹞⟣┈┈┈⟢﹞*\n> *مرحبا بك/ي  ${taguser}*'
+ },
+ body: {
+ text: '> *﹝⟣┈┈┈⟢﹝🍄﹞⟣┈┈┈⟢﹞*\n> *✨هذة هيا قائمه الاوامر✨*\n> *قم بأختيار قسم من القائمه👇🏻*\n> *﹝⟣┈┈┈⟢﹝🍄﹞⟣┈┈┈⟢﹞*\n> *Copyright©* 2024 Mahmoud Al Tarboo.'
+  },
+  nativeFlowMessage: {
+  buttons: [
+   {
+  name: 'single_select',
+  buttonParamsJson: JSON.stringify({
+  title: '💫 اخـتر القـسـم 💫',
+  sections: [
+  {
+  title: 'قسم الاوامر',
+  highlight_label: '𝐁𝐎𝐓_𝐓𝐀𝐑𝐁𝐎𝐎',
+  rows: [
+  {
+  header: 'هذا القسم خاص بالمجموعات فقط👥',
+  title: 'قـسـم الجروبات 👥',
+  description: '',
+  id: '.قسم-الجروبات'
+  },
+  {
+  header: 'هذا القسم خاص بالتحميلات فقط📥',
+  title: 'قـسـم الـتنـزيلات📥✬',
+  description: '',
+  id: '.قسم-التنزيلات'
+  },
+  {
+   header: 'هذا القسم خاص بالمرح🧸',
+  title: 'قـسـم الـتـرفيـه🎮✬',
+  description: '',
+  id: '.قسم-الترفيه'
+  },
+  {
+    header: 'يوجد بة كل الاوامر المتعلقة بالتحويل 🛠️',
+  title: 'قـسـم الـتحـويل🛠️✬',
+  description: '',
+  id: '.قسم-التحويل'
+  },
+  {
+  header: ' يوجد بة كل الاوامر الاسلامية👳🏻‍♂ ',
+  title: 'قـسـم الـديـني✨✬',
+  description: '',
+  id: '.قسم-ديني'
+  },
+  {
+  header: 'هذا القسم خاص بالمطور فقط⚙️',
+  title: ' قـسـم الـمـطور🙎🏻✬',
+  description: '',
+  id: '.قسم-المطور'
+  },
+   {
+    header: 'هاذا القسم للألقاب🖊️',
+  title: ' قـسـم الألقاب📕✬',
+  description: '',
+  id: '.قسم-الألقاب'
+  },
+   {
+  header: 'هنا قـسم الالعاب والفعاليه🕹️',
+  title: ' قـسم الالعاب🧩✬',
+  description: '',
+  id: '.قسم-الالعاب'
+  }
+  ]
+  }
+  ]
+  }),
+  messageParamsJson: ''
+  }, 
+  {
+                                name: "cta_url",
+                                buttonParamsJson: JSON.stringify({
+                                    display_text: "قنـاة الـواتـساب📣",
+                                    url: "https://chat.whatsapp.com/HTAcYFJ19sC07ykgnKqBzp",
+                                    merchant_url: "https://chat.whatsapp.com/HTAcYFJ19sC07ykgnKqBzp"
+  })
+  }
+  ]
+  }
+  }
+  }
+  }
+  }, {})
 
-   let handler = async (m, { conn, usedPrefix, command}) => {
-       let d = new Date(new Date + 3600000)
-       let locale = 'ar'
-       let week = d.toLocaleDateString(locale, { weekday: 'long' })
-       let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
-       let _uptime = process.uptime() * 1000
-       let uptime = clockString(_uptime)
-   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-   if (!(who in global.db.data.users)) throw `✳️ لم يتم العثور على المستخدم في قاعدة البيانات الخاصة بي`
-   let videoUrl = 'https://telegra.ph/file/6f5728ffb36e986b957f6.mp4'
-   let user = global.db.data.users[who]
-   let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who]
-   let { min, xp, max } = xpRange(user.level, global.multiplier)
-   let username = conn.getName(who)
-   let math = max - xp
-   let prem = global.prems.includes(who.split`@`[0])
-   let sn = createHash('md5').update(who).digest('hex')
-   let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length 
-   let more = String.fromCharCode(8206)
-   let readMore = more.repeat(850) 
-  m.react('📁')
-   let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-   let str = `
-      ┓━ ╼━━━╃⌬〔 𝙼𝚅𝚁𝙾 𝙱𝙾𝚃 〕⌬╄━━━╾ ━┏
- مـرحــبـا ${taguser} 👋🏻
+  }
 
-≼👤≽ مـعـلــومـات الـبــوت╿↶
-━ ── • ꕤ • ── ━
- اســم الـبــوت  𝙼𝚅𝚁𝙾 お ‘ 
-منـصـه التـشغيــل 【.هيروكو.】
-وقت التشغيل : ${uptime}
-اليوم : ${week}
-التاريخ : ${date}
-مطوري : wa.me/201208386317
-⋄━───═◞⬪⇊⬪◟═───━⋄
-اذا لم يرد عليك البوت عليك ارسال 
-⚡⇇.صلح 
-⚡⇇.تصليح
-━ ── • ꕤ • ── ━
-⇊ قوائم بوت مارو المطلوبه ⇊
-.....................
-🤖⇇.ذكاءاصطناعي
-⛩️⇇.الجروب
-🔮⇇.الانمي
-👥⇇.الاعضاء
-🕋⇇.الدين
-💎⇇.البنك
-📥⇇.التحميلات
-🎞⇇.الايديت
-⚙️⇇.الادوات
-♻️⇇.التحويلات
-🎮⇇.الترفيه
-🔊⇇.الاصوات
-👑⇇.المطور
-💢⇇.تصاميم
-📌⇇. قائمتي
-⚡⇇.المعرف 
-💯⇇.السورس
-📮⇇.قوانين
-━ ── • ꕤ • ── ━
-👋🏻 هلا اذا اردت الوصول اللي الاوامر مره واحده كامله ارسل
+  handler.help = ['info']
+  handler.tags = ['main']
+  handler.command = ['مهام','ty','er','youssef','ui','op']
 
- 🚩⇇.المهام
-
-⋄━───═◞⬪قوانين⬪◟═───━⋄
-❏╎❯ ممنوع سب البوت لانك سبيت البوت = سبيت المطور
-❏╎❯ تمتع بالبوت ولا تكتر اسبام للبوت اذا كان لديك مشكله او تريد اضافه اوامر اخري جديده تواصل مع المطور
-❏╎❯ المطور wa.me/201208386317
-*┛━ ╼━━━╃⌬〔 𝙼𝚅𝚁𝙾 𝙱𝙾𝚃 〕⌬╄━━━╾ ━┗*
-   `.trim()
-       conn.sendMessage(m.chat, {
-           video: { url: videoUrl }, caption: str,
-     mentions: [m.sender,global.conn.user.jid],
-     gifPlayback: true,gifAttribution: 0
-       }, { quoted: m });
-   };
-   handler.help = ['main']
-   handler.command = /^(الاوامر|menu|أوامر|اوامر)$/i
-
-   export default handler
-   function clockString(ms) {
-       let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-       let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-       let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-       return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
-      
+  export default handler
