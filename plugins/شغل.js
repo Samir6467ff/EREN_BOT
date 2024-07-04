@@ -1,14 +1,3 @@
-/*
-
-- Agradecimiento a la comunidad de "WSApp • Developers"
- * https://whatsapp.com/channel/0029Vag9bvrLSmbRE2I5Oj2h
-- Agradecimiento especial a Carlos (PT) por los codigos de interactiveMessage (botones)
-- Agradecimiento a Darlyn1234 por la estructura de uso en este codigo y quoted
- * https://github.com/darlyn1234
-- Adaptacion de imagen en tipo lista, codigo y funcionamiento por BrunoSobrino
- * https://github.com/BrunoSobrino
-
-*/
 import fetch from 'node-fetch';
 import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys';
 
@@ -25,7 +14,7 @@ let enviando = false;
 const handler = async (m, { command, usedPrefix, conn, text }) => {
   const datas = global;
   const idioma = datas.db.data.users[m.sender].language;
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`));
+  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`));
   const tradutor = _translate.plugins.descargas_play_v2;
   device = await getDevice(m.key.id);
 
@@ -60,10 +49,16 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
     if (!success) {
       enviando = false;
-      throw `${tradutor.texto2}`;
+      throw `_*< DESCARGAS - PLAY v2 />*_
+
+*[ ℹ️ ] ينقص عنوان فيديو YouTube.*
+
+*[ 💡 ] مثال:* _.playyt Good Feeling - Flo Rida_
+
+*[ 💡 ] Exemplo 2:* _.playyt https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
     }
 
-    const dataMessage = `${tradutor.texto4[0]} ${data.resultado.title}\n${tradutor.texto4[1]} ${data.resultado.publicDate}\n${tradutor.texto4[2]} ${data.resultado.channel}\n${tradutor.texto4[3]} ${data.resultado.url}`.trim();  
+    const dataMessage = `العنوان : ${data.resultado.title}\n\nتم النشر : ${data.resultado.publicDate}\n\nالقناه : ${data.resultado.channel}\n\nرابط القناه : ${data.resultado.url}`.trim();  
     if (!text.includes('SN@') && command !== 'شغل') await conn.sendMessage(m.chat, { text: dataMessage }, { quoted: m });      
       
     if (command === 'شغل') {
@@ -73,7 +68,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
               message: {
                   interactiveMessage: {
                       body: { text: dataMessage },
-                      footer: { text: `${global.wm}`.trim() },
+                      footer: { text: `𝒁𝒆𝒛𝒐 𝑩𝒐𝒕`.trim() },
                       header: {
                           hasMediaAttachment: true,
                           imageMessage: messa.imageMessage,
@@ -83,15 +78,15 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
                               {
                                   name: 'quick_reply',
                                   buttonParamsJson: JSON.stringify({
-                                      display_text: 'صوت🎵',
-                                      id: `${usedPrefix}play.1 ${data.resultado.url} SN@`
+                                      display_text: 'الصوت🎧',
+                                      id: `.صوتي ${data.resultado.url} SN@`
                                   })
                               },
                               {
                                   name: 'quick_reply',
                                   buttonParamsJson: JSON.stringify({
-                                      display_text: 'فيديو🔍',
-                                      id: `${usedPrefix}play.2 ${data.resultado.url} SN@`
+                                      display_text: 'الفيديو📽️',
+                                      id: `.في ${data.resultado.url} SN@`
                                   })
                               },   
                           ],
@@ -107,7 +102,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
     }    
 
     try {
-      if (command === 'play.1') {
+      if (command === 'شغل2') {
         let apiUrls2 = [
           `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp3?url=${data.resultado.url}`,
@@ -131,9 +126,9 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
         if (!success2) {
           enviando = false;
-          throw `${tradutor.texto3}`;
+          throw `تم بنجاه ٣`;
         }
-      } else if (command === 'play.2') {
+      } else if (command === 'شغل1') {
         let apiUrls22 = [
           `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp4?url=${data.resultado.url}`,            
@@ -159,13 +154,13 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
         if (!success2) {
           enviando = false;
-          throw `${tradutor.texto3}`;
+          throw `تم بنجاح ٢`;
         }
       }
     } catch (ee) {
       console.log(ee.message)  
       enviando = false;
-      throw `${tradutor.texto3}`;
+      throw `لوج`;
     }
 
     if (buff) {
@@ -173,19 +168,19 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
       enviando = false;
     } else {
       enviando = false;
-      throw `${tradutor.texto5}`;
+      throw `ت٥`;
     }
   } catch (error) {
     console.log(error);  
     enviando = false;
-    throw tradutor.texto6;
+    throw اريرور;
   }
 };
 
-handler.command = /^(play.1|play.2|شغل)$/i;
+handler.command = /^(شغل|شغل1|شغل2)$/i;
 export default handler;
 
 async function isValidYouTubeLink(link) {
     const validPatterns = [/youtube\.com\/watch\?v=/i, /youtube\.com\/shorts\//i, /youtu\.be\//i, /youtube\.com\/embed\//i, /youtube\.com\/v\//i, /youtube\.com\/attribution_link\?a=/i, /yt\.be\//i, /googlevideo\.com\//i, /youtube\.com\.br\//i, /youtube-nocookie\.com\//i, /youtubeeducation\.com\//i, /m\.youtube\.com\//i, /youtubei\.googleapis\.com\//i];
     return validPatterns.some(pattern => pattern.test(link));
-                           }
+}
