@@ -29,13 +29,13 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                                     rows: [
                                         {
                                             header: '❯⏐اوامـر الـمطـور↞👑',
-                                            title: 'ميزو11',
+                                            title: 'المطور',
                                             description: '',
-                                            id: 'ميزو11'
+                                            id: '.ميزو11'
                                         },
                                         {
                                             header: '❯⏐جـمـيـع الاوامـر ↞💎',
-                                            title: 'ميزو12',
+                                            title: 'كل الاوامر',
                                             description: '',
                                             id: '.ميزو12'
                                         }
@@ -54,8 +54,8 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                     {
                         name: 'quick_reply',
                         buttonParamsJson: JSON.stringify({
-                            display_text: '❯ .شرح',
-                            id: `❯⏐شـرح الـبـوت🔍`
+                            display_text: `❯⏐شـرح الـبـوت🔍 ',
+                            id: '.شرح'`
                         })
                     },
                     {
